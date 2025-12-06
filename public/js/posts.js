@@ -16,7 +16,7 @@
 
         // Set username greeting
         document.getElementById("welcomeText").innerHTML =
-          `Hello, ${user.username} 👋`;
+          `Welcome back, <strong>${user.username}</strong>`;
 
         // 2️⃣ Fetch posts
         const postsRes = await fetch("/api/getPosts", {
@@ -28,7 +28,7 @@
         const container = document.getElementById("postsContainer");
 
         if (!data.posts || data.posts.length === 0) {
-          container.innerHTML = `<p class="empty">No posts available.</p>`;
+          container.innerHTML = `<div class="empty">No posts available. Start saving posts from the dashboard!</div>`;
           return;
         }
 

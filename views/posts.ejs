@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Posts</title>
-  <link rel="stylesheet" href="/css/posts.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Posts - Post Manager</title>
+    <link rel="stylesheet" href="/css/posts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <div class="container">
-    <div class="card">
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="brand">
+                <span>Post Manager</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/api/posts" class="nav-highlight">My Posts</a></li>
+            </ul>
+        </div>
+    </nav>
 
-      <!-- Username will be inserted here -->
-      <div class="welcome" id="welcomeText">Checking login...</div>
+    <div class="container">
+        <div class="page-header">
+            <div class="header-content">
+                <div class="welcome" id="welcomeText">Loading...</div>
+                <h1>My Saved Posts</h1>
+                <p class="header-subtitle">Manage your saved posts collection</p>
+            </div>
+        </div>
 
-      <h2>Your Posts</h2>
-      <div class="button-container">
-  <button id="deletePost">Delete All Posts</button>
-  <button id="logout">Logout</button>
-</div>
+        <div class="card">
+            <div class="action-bar">
+                <button id="deletePost" class="btn-danger">Delete All Posts</button>
+                <button id="logout" class="btn-logout">Logout</button>
+            </div>
 
-      <div id="postsContainer"></div>
+            <div id="postsContainer" class="posts-container">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading your posts...</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
- <script src="/js/posts.js"></script>
-
+    <script src="/js/posts.js"></script>
 </body>
 </html>

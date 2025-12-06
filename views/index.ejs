@@ -3,138 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Placeholder Viewer</title>
+    <title>Post Manager - Dashboard</title>
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <nav class="navbar">
-  <div class="navbar-container">
-    <div class="brand">API Dashboard</div>
-    <ul class="nav-links">
-      <li><a href="/api/auth/register">Register</a></li>
-      <li><a href="/api/auth/login">Login</a></li>
-      <li><a href="/api/posts">Saved Posts</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="container">
-    <header>
-        <h1>API UI Dashboard</h1>
-        <div class="subtitle">Professional JSON Placeholder Management System</div>
-         <a href="/api/posts">
-  <button style="padding: 10px 20px; background: #4e4376; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">
-    View Saved Posts
-  </button>
-</a>
-    </header>
-   
-
-    
-
-    <div class="sections-grid">
-        <div class="section">
-            <h2>View Data</h2>
-            <div class="input-group">
-                 <button id="fetchhundredPost">Fetch  100 Posts</button>
-                <div class="form-row">
-                    <label for="id">Post ID</label>
-                    <input placeholder="Enter post ID" type="number" id="id" min="1">
-                </div>
-                <button id="submitId">Fetch Single Post</button>
-                
-               
+        <div class="navbar-container">
+            <div class="brand">
+                <span>Post Manager</span>
             </div>
-            <div class="input-group" style="margin-top: 20px;">
-                <div class="form-row">
-                    <label for="userId">User ID</label>
-                    <input placeholder="Enter user ID" type="number" id="userId" min="1">
+            <ul class="nav-links">
+                <li><a href="/api/auth/register">Register</a></li>
+                <li><a href="/api/auth/login">Login</a></li>
+                <li><a href="/api/posts" class="nav-highlight">My Posts</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <div class="header-content">
+                <h1>Post Management Dashboard</h1>
+                <p class="header-subtitle">Manage and interact with JSON Placeholder API posts efficiently</p>
+                <div class="header-actions">
+                    <a href="/api/posts" class="btn-primary">View Saved Posts</a>
                 </div>
-                <button id="userPost">Fetch User Posts</button>
+            </div>
+        </header>
+
+        <div class="sections-grid">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>View Data</h2>
+                </div>
+                <div class="section-content">
+                    <button id="fetchhundredPost" class="btn-action btn-full">Fetch 100 Posts</button>
+                    <div class="form-group">
+                        <label for="id">Post ID</label>
+                        <input type="number" id="id" placeholder="e.g., 1, 2, 3..." min="1">
+                    </div>
+                    <button id="submitId" class="btn-action btn-full">Get Single Post</button>
+                    
+                    <div class="form-divider"></div>
+                    
+                    <div class="form-group">
+                        <label for="userId">User ID</label>
+                        <input type="number" id="userId" placeholder="e.g., 1, 2, 3..." min="1">
+                    </div>
+                    <button id="userPost" class="btn-action btn-full">Get User Posts</button>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>Filter Posts</h2>
+                </div>
+                <div class="section-content">
+                    <div class="form-group">
+                        <label for="filterKeyword">Search Keyword</label>
+                        <input type="text" id="filterKeyword" placeholder="Search in title or body...">
+                    </div>
+                    <div class="form-group">
+                        <label for="filterUserId">User ID</label>
+                        <input type="number" id="filterUserId" placeholder="Filter by user" min="1">
+                    </div>
+                    <div class="form-row-split">
+                        <div class="form-group">
+                            <label for="filterMinLength">Min Length</label>
+                            <input type="number" id="filterMinLength" placeholder="Min" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="filterMaxLength">Max Length</label>
+                            <input type="number" id="filterMaxLength" placeholder="Max" min="0">
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="applyFilter" class="btn-action">Apply Filter</button>
+                        <button id="clearFilter" class="btn-secondary">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>Create Post</h2>
+                </div>
+                <form id="createForm" class="section-content">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder="Enter post title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Content</label>
+                        <textarea id="body" placeholder="Write your post content here..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="createuserId">User ID</label>
+                        <input type="number" id="createuserId" placeholder="User ID" min="1" required>
+                    </div>
+                    <button type="submit" class="btn-action btn-full">Create Post</button>
+                </form>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <h2>Update Post</h2>
+                </div>
+                <form id="updateForm" class="section-content">
+                    <div class="form-group">
+                        <label for="UpdateId">Post ID</label>
+                        <input type="number" id="UpdateId" placeholder="Post ID to update" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateTitle">New Title</label>
+                        <input type="text" id="updateTitle" placeholder="Enter new title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateBody">New Content</label>
+                        <textarea id="updateBody" placeholder="Enter new content" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateUserId">User ID</label>
+                        <input type="number" id="updateUserId" placeholder="User ID" min="1" required>
+                    </div>
+                    <button type="submit" class="btn-action btn-full">Update Post</button>
+                </form>
             </div>
         </div>
 
-        <!-- Filter Section -->
-        <div class="section">
-            <h2>Filter Cached Posts</h2>
-            <div class="input-group">
-                <div class="form-row">
-                    <label for="filterKeyword">Search Keyword</label>
-                    <input type="text" id="filterKeyword" placeholder="Search title or body">
-                </div>
-                <div class="form-row">
-                    <label for="filterUserId">User ID</label>
-                    <input type="number" id="filterUserId" placeholder="Filter by user ID" min="1">
-                </div>
-                <div class="form-row">
-                    <label for="filterMinLength">Min Body Length</label>
-                    <input type="number" id="filterMinLength" placeholder="Minimum length" min="0">
-                </div>
-                <div class="form-row">
-                    <label for="filterMaxLength">Max Body Length</label>
-                    <input type="number" id="filterMaxLength" placeholder="Maximum length" min="0">
-                </div>
-                <button id="applyFilter">Apply Filter</button>
-                <button id="clearFilter" style="background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);">Clear Filter</button>
-            </div>
+        <div id="messageBox" class="message-box"></div>
+        
+        <div class="save-section">
+            <button id="saveAllPosts" class="btn-save">Save All Displayed Posts</button>
         </div>
 
-        <!-- Create Post Section -->
-        <div class="section">
-            <h2>Create Post</h2>
-            <form id="createForm">
-                <div class="form-row">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" placeholder="Enter post title" required>
-                </div>
-                <div class="form-row">
-                    <label for="body">Body</label>
-                    <textarea id="body" placeholder="Enter post content" required></textarea>
-                </div>
-                <div class="form-row">
-                    <label for="createuserId">User ID</label>
-                    <input type="number" id="createuserId" placeholder="Enter user ID" min="1" required>
-                </div>
-                <button type="submit">Create New Post</button>
-            </form>
-        </div>
-
-        <!-- Update Post Section -->
-        <div class="section">
-            <h2>Update Post</h2>
-            <form id="updateForm">
-                <div class="form-row">
-                    <label for="UpdateId">Post ID</label>
-                    <input type="number" id="UpdateId" placeholder="Post ID to update" min="1" required>
-                </div>
-                <div class="form-row">
-                    <label for="updateTitle">New Title</label>
-                    <input type="text" id="updateTitle" placeholder="Enter new title" required>
-                </div>
-                <div class="form-row">
-                    <label for="updateBody">New Body</label>
-                    <textarea id="updateBody" placeholder="Enter new content" required></textarea>
-                </div>
-                <div class="form-row">
-                    <label for="updateUserId">User ID</label>
-                    <input type="number" id="updateUserId" placeholder="Enter user ID" min="1" required>
-                </div>
-                <button type="submit">Update Post</button>
-            </form>
-        </div>
+        <div class="results-section" id="tableBox"></div>
     </div>
 
-    <div id="messageBox"></div>
-    <div class="center-btn">
-  <button id="saveAllPosts">Save All Displayed Posts</button>
-</div>
-
-    <div class="results-section" id="tableBox"></div>
-    
-</div>
-
-<script src="/js/index.js"></script>
-
+    <script src="/js/index.js"></script>
 </body>
 </html>

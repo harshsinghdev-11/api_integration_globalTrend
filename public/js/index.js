@@ -7,10 +7,7 @@ const tableBox = document.getElementById("tableBox");
 
 function showMessage(msg, type = "success") {
     messageBox.innerHTML = msg;
-    messageBox.className = 'show';
-    messageBox.style.background = type === "success" ? "#d4edda" : "#f8d7da";
-    messageBox.style.color = type === "success" ? "#155724" : "#721c24";
-    messageBox.style.border = type === "success" ? "2px solid #c3e6cb" : "2px solid #f5c6cb";
+    messageBox.className = `message-box show ${type}`;
     
     setTimeout(() => {
         messageBox.classList.remove('show');
