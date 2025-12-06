@@ -1,0 +1,108 @@
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .welcome {
+      font-size: 20px;
+      font-weight: bold;
+      color: #f39c12;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #1e3c72;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    tbody tr {
+      background: #ffffff;
+      border-bottom: 1px solid #e8ecf1;
+      transition: background 0.25s ease;
+    }
+
+    tbody tr:hover {
+      background: #f3f7ff;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      color: #34495e;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+     button {
+    padding: 12px 20px;
+    margin: 10px 5px 20px 0; /* top, right, bottom, left */
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(243, 156, 18, 0.4);
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  }
+
+  button#logout {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-start; /* left align, can use center if you want */
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
