@@ -2,6 +2,13 @@
 
 A full-stack web application for managing and interacting with JSON Placeholder API posts. This application provides a user-friendly interface to fetch, create, update, filter, and save posts with user authentication and data persistence.
 
+## 🌐 Live Demo
+
+The application is deployed and available at:
+**https://api-integration-globaltrend.onrender.com/**
+
+You can access the live application directly without any local setup.
+
 ## Features
 
 - 🔐 User authentication (Register, Login, Logout)
@@ -89,6 +96,11 @@ The server will start on `http://localhost:3000` (or the port specified in `.env
 Open your browser and navigate to:
 ```
 http://localhost:3000
+```
+
+**Or access the live deployed version:**
+```
+https://api-integration-globaltrend.onrender.com/
 ```
 
 ## API Endpoints
